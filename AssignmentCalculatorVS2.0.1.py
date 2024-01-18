@@ -107,3 +107,30 @@ def calculate_grade() -> None:
         messagebox.showinfo(
             "Results",
             f"The grade received so far in the class was a {assignment_percent}%. You should raise your C by visiting {html_link}."
+    elif assignment_percent > 60 and assignment_percent <= 70:
+        messagebox.showinfo(
+            "Results",
+            f"Your current grade is {assignment_percent}%, which is a D. You can raise your grade by visiting {html_link}.",
+        )
+    else:
+        messagebox.showinfo(
+            "Results",
+            f"You got an F with a low grade of {assignment_percent}%. You should immediatly visit {html_link} and start to study.",
+        )
+
+
+root = tk.Tk()
+root.geometry("800x800")
+
+num_assignments_label = tk.Label(
+    root, text="How many assignments have been completed in the class so far?"
+)
+num_assignments_label.pack()
+
+num_assignments_entry = tk.Entry(root)
+num_assignments_entry.pack()
+
+calculate_button = tk.Button(root, text="Calculate Grade", command=calculate_grade)
+calculate_button.pack()
+
+root.mainloop()
